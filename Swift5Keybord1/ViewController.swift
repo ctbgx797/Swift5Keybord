@@ -37,9 +37,20 @@ class ViewController: UIViewController,UITextFieldDelegate {
     }
     
     //タッチでキーボードを閉じる
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        //編集終了後にキーボードを閉じる
+        view.endEditing(true)
+    }
     
     //returnを押したらキーボードが閉じる
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        //キーボードが閉じるよ
+        textField.resignFirstResponder()
+        return true
+    }
+    
     
 }
 
